@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<link rel="stylesheet" href="./styles.css">
+<script>
+var app=angular.module('myApp',[]);
+
+app.directive('asNumber', function() {
+	  return {
+	    require: 'ngModel',
+	    link: function(scope, element, attrs, ngModel) {
+	      ngModel.$parsers.push(function(val) {
+	        return parseInt(val, 10);
+	      });
+	      ngModel.$formatters.push(function(val) {
+	        return '' + val;
+	      });
+	    }
+	  };
+	});
+
+app.controller('MyController',['$scope','$timeout',function($scope,$timeout){
+
+$scope.trainingSets={'addition':[]};
+
+for (var i=0;i<100;i++){
+	//generate 3 operands for addition
+	var a=Math.random()*30;
+	var b=Math.random()*30;
+	var c=Math.random()*30;
+	var expected=a+b+c;
+	$scope.trainingSets.addition.push([a,b,c,expected]);
+}
+
+//the visualization uses this structure. Don't change it.
+$scope.data={"nodes":[
+				{"name":"A1","store":0,"layer":1,"bias":1},
+				{"name":"A2","store":0,"layer":1,"bias":1},
+				{"name":"A3","store":0,"layer":1,"bias":1},
+				{"name":"B1","store":0,"layer":2,"bias":1},
+				{"name":"B2","store":0,"layer":2,"bias":1},
+				{"name":"B3","store":0,"layer":2,"bias":1},
+				{"name":"B4","store":0,"layer":2,"bias":1},
+				{"name":"B5","store":0,"layer":2,"bias":1},
+				{"name":"C1","store":0,"layer":3,"bias":1},
+				{"name":"C2","store":0,"layer":3,"bias":1},
+				{"name":"C3","store":0,"layer":3,"bias":1},
+				{"name":"C4","store":0,"layer":3,"bias":1},
+				{"name":"Output","store":0,"layer":4,"bias":1}
+				],
+			"links":[
+				{"source":"A1","target":"B1","weight":Math.random()*1.0},
+				{"source":"A1","target":"B2","weight":Math.random()*1.0},
+				{"source":"A1","target":"B3","weight":Math.random()*1.0},
+				{"source":"A2","target":"B1","weight":Math.random()*1.0},
+				{"source":"A2","target":"B2","weight":Math.random()*1.0},
+				{"source":"A2","target":"B4","weight":Math.random()*1.0},
+				{"source":"A2","target":"B5","weight":Math.random()*1.0},
+				{"source":"A3","target":"B3","weight":Math.random()*1.0},
+				{"source":"A3","target":"B4","weight":Math.random()*1.0},
+				{"source":"A3","target":"B5","weight":Math.random()*1.0},
+				{"source":"B1","target":"C1","weight":Math.random()*1.0},
+				{"source":"B1","target":"C2","weight":Math.random()*1.0},
+				{"source":"B2","target":"C1","weight":Math.random()*1.0},
+				{"source":"B2","target":"C3","weight":Math.random()*1.0},
+				{"source":"B3","target":"C2","weight":Math.random()*1.0},
+				{"source":"B3","target":"C3","weight":Math.random()*1.0},
+				{"source":"B4","target":"C3","weight":Math.random()*1.0},
+				{"source":"B4","target":"C4","weight":Math.random()*1.0},
+				{"source":"B5","target":"C2","weight":Math.random()*1.0},
+				{"source":"B5","target":"C4","weight":Math.random()*1.0},
+				{"source":"C1","target":"Output","weight":Math.random()*1.0},
+				{"source":"C2","target":"Output","weight":Math.random()*1.0},
+				{"source":"C3","target":"Output","weight":Math.random()*1.0},
+				{"source":"C4","target":"Output","weight":Math.random()*1.0}
+				]
+			};
+
+var svg=d3.select('#chart');
+
+$scope.maxDist=200;
+$scope.gravityMult=100;
+$scope.linkStrengthMult=100;
+	
+$scope.width = document.getElementById('chart').width.baseVal.value;
+$scope.height = document.getElementById('chart').height.baseVal.value;
+var select = svg.selectAll('circle');
+
+//auto-scale the x and y axis
+var x=d3.scaleLinear().range([0,$scope.width]);
+var y=d3.scaleLinear().range([$scope.height,0]);
+
+var tooltip=d3.select('body').append('div')
+	.attr('class','tooltip')
+	.text('tooltip');
+
+var color = d3.scaleOrdinal(d3.schemeCategory20);
+
+//create a simulation object and create the forces for it
+var simulation = d3.forceSimulation()
+	.velocityDecay(0.1)
+	.force("link", d3.forceLink().id(function(d){return d.name;}).strength(0))
+    .force("charge", d3.forceManyBody().strength(-20).distanceMin(0).distanceMax(50))
+    .force("center", d3.forceCenter($scope.width / 2, $scope.height / 2))
+	.force('x',d3.forceX().strength(0.03).x(function(d){return (d.layer)*$scope.width/4.0}));
+
+	
+var links = svg.append('g').attr('class','links')
+	.selectAll('line')
+	.data($scope.data.links)
+	.enter().append('line')
+	.attr('stroke-width',function(d){return 1.0+d.weight*5.0;})
+	.attr('stroke',function(d){if (d.weight>0){return 'white';} else {return 'red';}})
+	.on('mouseover',function(d){
+			return tooltip.style('visibility','visible')
+						  .text('Error: '+d.error);})
+		.on('mouseout',function(d){return tooltip.style('visibility','hidden');})
+		.on('mousemove',function(d){
+			return tooltip.style('top',(d3.event.pageY+10)+'px')
+						  .style('left',(d3.event.pageX+10)+'px');});
+
+var linkText = svg.append('g').selectAll('text')
+	.data($scope.data.links)
+	.enter().append('text')
+	//.text(function(d){if (d.lastUpdate>0){return '+'+d.lastUpdate;} else return d.lastUpdate;})
+	.text(function(d){return (''+d.weight).substr(0,4);})
+	.attr('fill',function(d){
+		if (d.lastUpdate){
+			if (d.lastUpdate>0){
+				return 'yellow';
+			} else {
+				return 'red';
+			}
+		} else {
+			return 'white';
+		}
+		});
+
+
+var circleJoin = svg.append('g').selectAll('circle').data($scope.data.nodes,function(d){return d.name;});
+
+var textJoin = svg.append('g').selectAll('text').data($scope.data.nodes,function(d){return d.name;});
+
+var nodes = circleJoin.enter().append("circle")
+      .attr("r", 20)
+      .attr("fill", '#bbbbff')
+	  .attr('stroke-width',function(d){if (!d.error){return 0;}return Math.min(15,Math.abs(d.error));})
+	  .attr('stroke',function(d){if (d.error<0){return '#ff0000';} else {return '#ffff00';}})
+      .call(d3.drag()
+          .on("start", dragstarted)
+          .on("drag", dragged)
+          .on("end", dragended))
+		  .on('mouseover',function(d){
+			return tooltip.style('visibility','visible')
+						  .text('Error: '+d.error);})
+		.on('mouseout',function(d){return tooltip.style('visibility','hidden');})
+		.on('mousemove',function(d){
+			return tooltip.style('top',(d3.event.pageY+10)+'px')
+						  .style('left',(d3.event.pageX+10)+'px');});
+
+var text = textJoin.enter().append('text').text(function(d){return d.store;});
+		  
+//tell the simulation what nodes will have forces applied to them
+simulation.nodes($scope.data.nodes).on('tick',ticked);
+	
+simulation.force('link').links($scope.data.links);
+	
+function ticked() {
+	nodes
+		.attr("cx", function(d) { return d.x; })
+		.attr("cy", function(d) { return d.y; });
+	text
+		.attr("dx", function(d) { return d.x-3; })
+		.attr("dy", function(d) { return d.y+5; });
+	links
+        .attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+	linkText
+		.attr('dx',function(d){return d.source.x+(d.target.x-d.source.x)*0.2;})
+		.attr('dy',function(d){return d.source.y+(d.target.y-d.source.y)*0.2;});
+  }
+
+
+function dragstarted(d) {
+  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+  d.fx = d.x;
+  d.fy = d.y;
+}
+
+function dragged(d) {
+  d.fx = d3.event.x;
+  d.fy = d3.event.y;
+}
+
+function dragended(d) {
+  if (!d3.event.active) simulation.alphaTarget(0);
+  d.fx = null;
+  d.fy = null;
+}
+
+$scope.learningRate=0.1;
+
+$scope.updateVisuals=function(){
+$timeout(function(){
+	textJoin.data($scope.data.nodes,function(d){return d.name});
+	text.text(function(d){return (''+(d.store*d.bias)).substr(0,5);});
+	
+	links
+		.transition(100)
+		.attr('stroke-width',function(d){return 1.0+d.weight*5.0;})
+		.attr('stroke',function(d){if (d.weight>0){return 'yellow';} else {return 'red';}});
+	
+	linkText
+		.text(function(d){return (''+d.weight).substr(0,4);})
+		.attr('fill',function(d){
+		if (d.lastUpdate){
+			if (d.lastUpdate>0){
+				return 'yellow';
+			} else {
+				return 'red';
+			}
+		} else {
+			return 'white';
+		}
+		});
+		
+	nodes
+		.transition(100)
+		.attr('stroke-width',function(d){if (!d.error){return 0;}return Math.min(15,Math.abs(d.error));})
+		.attr('stroke',function(d){if (d.error<0){return '#ff0000';} else {return '#00ff00';}})
+		.attr('r',function(d){return 20*d.bias;});
+});
+}
+
+
+$scope.guess=function(a,b,c){
+	$scope.result=$scope.feedforward(a,b,c);
+	return $scope.result;
+}
+
+//do some reference linking so our AI processes faster
+{
+	$scope.layers=[];
+	var lowestLayer=999;
+	var highestLayer=0;
+	
+	for (var i=0;i<$scope.data.nodes.length;i++){
+		var node = $scope.data.nodes[i];
+		if (node.layer<lowestLayer){lowestLayer=node.layer;}
+		if (node.layer>highestLayer){highestLayer=node.layer;}
+		node.error=0;
+		node.links=[];//points to an array of outgoing edges
+		node.backlinks=[];//points to an array of incoming edges
+		for (var j=0;j<$scope.data.links.length;j++){
+			var link = $scope.data.links[j];
+			if ($scope.data.links[j].source.name==node.name){
+				node.links.push(link);
+				link.from=node;
+			} else if ($scope.data.links[j].target.name==node.name){
+				node.backlinks.push(link);
+				link.to=node;
+			}
+		}
+	}
+	//create and populate the layers
+	$scope.layerOffset=-lowestLayer;
+	for (var i=0;i<=(highestLayer-lowestLayer);i++){
+		$scope.layers.push([]);
+	}
+	for (var i=0;i<$scope.data.nodes.length;i++){
+		var node = $scope.data.nodes[i];
+		$scope.layers[node.layer+$scope.layerOffset].push(node);
+	}
+}
+
+$scope.feedforward=function(a,b,c){
+	a=parseFloat(a);
+	if (a==NaN) {
+		a=0;
+	}
+	b=parseFloat(b);
+	if (b==NaN) {
+		b=0;
+	}
+	c=parseFloat(c);
+	if (c==NaN) {
+		c=0;
+	}
+	//clear the graph of temp values
+	for (var i=0;i<$scope.data.nodes.length;i++){
+		$scope.data.nodes[i].store=0;
+	}
+	$scope.findNode('A1').store=a;
+	$scope.findNode('A2').store=b;
+	$scope.findNode('A3').store=c;
+	$scope.layerFeed(1);
+	$scope.layerFeed(2);
+	$scope.layerFeed(3);
+	$scope.updateVisuals();
+	return $scope.data.nodes[$scope.data.nodes.length-1].store*$scope.data.nodes[$scope.data.nodes.length-1].bias;
+}
+
+//feedforward a specific layer
+$scope.layerFeed=function(layer){
+	//for each node in this layer
+	for (var i=0;i<$scope.data.nodes.length;i++){
+		if ($scope.data.nodes[i].layer==layer){
+			var node = $scope.data.nodes[i];
+			//find the edges coming out from it
+			for (var j=0;j<node.links.length;j++){
+				var link = node.links[j];
+				var amount = node.store*node.bias*link.weight;
+				var tgt = link.to;
+				tgt.store+=amount;
+			}
+		}
+	}
+}
+
+
+$scope.train=function(a,b,c,expected){
+	var nError=100;
+	while (nError>0.1){
+		//clear error
+		for (var i=0;i<$scope.data.nodes.length;i++){
+			$scope.data.nodes[i].error=0;
+		}
+		$scope.result = $scope.feedforward(a,b,c);
+		nError=Math.abs(($scope.result-expected)/expected);
+		//the output neuron is always last in the list. Don't mess it up.
+		$scope.data.nodes[$scope.data.nodes.length-1].error=expected-$scope.result;
+	
+		$scope.backpropagateErrors(4);
+		
+		//the next 4 lines of code are optional.
+		//they adjust the bias of a single node, then recalculate the new error of the network.
+		$scope.adjustLargestBias();
+		$scope.feedforward(a,b,c);
+		$scope.data.nodes[$scope.data.nodes.length-1].error=expected-$scope.result;
+		$scope.backpropagateErrors(4);
+	
+		$scope.backpropagateLayer(4);
+		//update weights
+		for (var i=0;i<$scope.data.links.length;i++){
+			if ($scope.data.links[i].from.layer==1){
+				$scope.data.links[i].weight+=$scope.data.links[i].lastUpdate;
+			}
+		}
+	}
+}
+
+$scope.runTrainingSet=function(index){
+	if (index<$scope.trainingSets.addition.length){
+		var s = $scope.trainingSets.addition[index];
+		$scope.train(s[0],s[1],s[2],s[3]);
+		$timeout(function(){$scope.runTrainingSet(index+1)},100);
+	}
+}
+$scope.adjustLargestBias=function(){
+	//find the node in the graph with the largest bias, excluding the output node
+	var n={'error':0};
+	for (var i=0;i<$scope.data.nodes.length-1;i++){
+		if (Math.abs($scope.data.nodes[i].error)>Math.abs(n.error)){
+			n=$scope.data.nodes[i];
+		}
+	}
+	//adjust the bias
+	var diff = n.store+n.error;
+	var delta = (n.store+n.error)/n.store;
+	delta=(delta-n.bias);//get the linear change
+	delta*=$scope.learningRate*3.0;
+	if (delta!=NaN){
+		n.bias+=delta;
+		//update incoming and outgoing weights
+	}
+	
+}
+
+
+$scope.backpropagateErrors=function(layerIndex){
+	//loop through each node in this layer
+	for (var i=0;i<$scope.layers[layerIndex+$scope.layerOffset].length;i++){
+		var node = $scope.layers[layerIndex+$scope.layerOffset][i];
+		//calculate outgoing error from the outgoing edges
+		//the output neurons are given error before calling this
+		for (var l=0;l<node.links.length;l++){
+			node.error+=node.links[l].error;
+		}
+		var totalInput=0;
+		for (var j=0;j<node.backlinks.length;j++){
+			var backlink=node.backlinks[j];
+			var inputFromEdge = backlink.weight*backlink.from.store*backlink.from.bias;
+			totalInput+=Math.abs(inputFromEdge);
+		}
+		for (var j=0;j<node.backlinks.length;j++){
+			var backlink=node.backlinks[j];
+			var inputFromEdge = backlink.weight*backlink.from.store*backlink.from.bias;
+			//set error of previous node
+			var impactRatio = inputFromEdge/totalInput;
+			backlink.error=node.error*impactRatio;
+		}
+	}
+	if (layerIndex>2){
+		$scope.backpropagateErrors(layerIndex-1);
+	}
+}
+
+/**
+ * This does the backpropagation on the selected layer and all previous layers.
+ * This method expects the error amount on each node in this layer to be populated already.
+ */
+$scope.backpropagateLayer=function(layerIndex){
+	for (var i=0;i<$scope.layers[layerIndex+$scope.layerOffset].length;i++){
+		var node = $scope.layers[layerIndex+$scope.layerOffset][i];
+		for (var j=0;j<node.backlinks.length;j++){
+			var backlink=node.backlinks[j];
+			var inputFromEdge = backlink.weight*backlink.from.store*backlink.from.bias;
+			//calculate the amount needed to fix this edge
+			var delta = backlink.error/backlink.from.store*backlink.from.bias;
+
+			delta = $scope.learningRate*delta;
+			node.backlinks[j].lastUpdate=delta;
+		}
+	}
+	//dont need to backpropagate to layer 1
+	if (layerIndex>2){
+		$scope.backpropagateLayer(layerIndex-1);
+	}
+}
+
+$scope.findNode=function(name){
+	for (var i=0;i<$scope.data.nodes.length;i++){
+		if ($scope.data.nodes[i].name==name){
+			return $scope.data.nodes[i];
+		}
+	}
+	return null;
+}
+  
+}]);
+</script>
+
+</head>
+
+	<body>
+	
+	  <!-- Sidebar -->
+		<div class="vis-sidebar vis-bar-block vis-border-right" style="display:none" id="mySidebar">
+	
+			<button onclick="vis_close()" class="vis-bar-item vis-large">Close &times;</button>
+			<h4 class="sidebar-h4">Algorithms</h4>
+			<a href="../Algorithms/Sorting/ComparisonSort.html" class="vis-bar-item vis-button">Comparision Sort</a>
+			<a href="../Algorithms/Sorting/HeapSort.html" class="vis-bar-item vis-button">Heap Sort</a>
+			<a href="../Algorithms/Graph/BFS.html" class="vis-bar-item vis-button">Breadth First Search</a>
+			<a href="../Algorithms/Graph/DFS.html" class="vis-bar-item vis-button">Depth First Search</a>
+			<a href="../Algorithms/Graph/Dijkstra.html" class="vis-bar-item vis-button">Dijkstra</a>
+			<a href="../Algorithms/Tree/BST.html" class="vis-bar-item vis-button">Binary Search Tree</a>
+			<h4 class="sidebar-h4">Data Visualisation</h4>
+			<a href="../Data visualization/barChart/barChart.html" class="vis-bar-item vis-button">Bar Chart</a>
+			<a href="../Data visualization/horizontalbarChart/horizontalbarChart.html" class="vis-bar-item vis-button">Horizontal Bar Chart</a>
+			<a href="../Data visualization/DoughnutChart/doughnutChart.html" class="vis-bar-item vis-button">Doughnut Chart</a>
+			<a href="../Data visualization/piechart/pieChart.html" class="vis-bar-item vis-button">Pie Chart</a>
+			<a href="../Data visualization/lineChart/lineChart.html" class="vis-bar-item vis-button">Line Chart</a>
+			<a href="../Data visualization/RadarChart/RadarChart.html" class="vis-bar-item vis-button">Radar Chart</a>
+			<h4 class="sidebar-h4">Machine Learning</h4>
+			<a href="./index.html" class="vis-bar-item vis-button">Neural Network</a>
+			<h4 class="sidebar-h4">Learn</h4>
+		<a href="../../documentation/algorithm.html" class="vis-bar-item vis-button">Algorithms</a>
+		<a href="../../documentation/DataVisualisation.html" class="vis-bar-item vis-button">Data Visualisation</a>
+		<a href="../../documentation/nn.html" class="vis-bar-item vis-button">Neural Network</a>
+		</div>
+	
+		
+		<!-- Fixed navigation bar content -->
+		<nav class="fixed-nav-bar">
+		<div class="topnav">
+		  <div class="vis-teal">
+		  <button class="vis-button vis-teal vis-xlarge" onclick="vis_open()">☰</button>
+		  <div class="logo"><img src="../logo.png" alt="logo"></div>
+		  <div class="topnav-right">
+		  <a href="../index.html">Home</a>
+		  <div class="dropdown">
+			<button class="dropbtn">Learn More
+			 
+			</button>
+			<div class="dropdown-content">
+		<a href="../documentation/algorithm.html" class="vis-bar-item vis-button">Algorithms</a>
+		<a href="../documentation/DataVisualisation.html" class="vis-bar-item vis-button vis-justify">Data <br>Visualisation</a>
+		<a href="../documentation/nn.html" class="vis-bar-item vis-button vis-justify">Neural<br>Network</a>
+			</div>
+		  </div> 
+		  </div>
+		</div>
+	  
+		</div>
+	  </nav>
+
+	  <center><h1>Neural Network</h1></center>
+<div ng-app='myApp'>
+<div ng-controller='MyController'>
+
+<svg id='chart' width="95vw" height="80vh"><defs>
+	
+</defs></svg>
+<center>
+<div>
+<label>Value 1: <input type="text" ng-model="value1"/></label><br><br>
+<label>Value 2: <input type="text" ng-model="value2"/></label><br><br>
+<label>Value 3: <input type="text" ng-model="value3"/></label><br><br>
+<label>Expected o/p: <input type="text" ng-model="expected"/></label><br><br>
+</div>
+</center>
+<div>
+    <center>
+<button ng-click="train(value1,value2,value3,expected)">Train</button>
+<button ng-click="guess(value1,value2,value3)">Guess</button>
+<button ng-click="runTrainingSet(0)">Autotrain</button>
+</center>
+</div>
+</div>
+</div>
+
+
+<!-- Footer -->
+<footer class="vis-center vis-black vis-padding-16">
+	<div class="footerv row">
+	<div class="column">
+		<div class="container">
+		<p><img height="80px" src="../logo.png"alt="footer-logo"> </p>
+		</div>
+	</div>
+	<div class="column">
+  <div class="container" id="cus">
+	<h4><b>Contact Us</b></h4>
+	<p class="contactus"><a href="https://www.linkedin.com/in/anushree-ninave-18374a1b3/" target="_blank">@Anushree</a> <a href="https://twitter.com/DeshpandeDevang" target="_blank">@Devang</a> <a href="https://www.linkedin.com/in/grace-lal5/" target="_blank">@Grace</a> <a href="https://www.linkedin.com/in/vinaya-wahekar-076857193/" target="_blank">@Vinaya</a></p>
+  </div>
+  </div>
+  <div class="column">
+	<div class="container">
+		<p><img class="iconimg" width="45px" src="../github.png"alt="github-logo"><a href="https://github.com/GraceLal/Edvisualize" target="_blank">Github</a></p>
+	</div>
+  </div>
+	</div>
+	
+</footer>
+
+
+
+<script>
+function vis_open() {
+document.getElementById("mySidebar").style.display = "block";
+}
+
+function vis_close() {
+document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+
+</body>
+</html>

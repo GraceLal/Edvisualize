@@ -1,0 +1,183 @@
+<!--@author: Anushree Ninave
+	Group No: A-15
+	Roll no: 2
+	Registration Number:18010499
+	@author: Vinaya Wahekar
+	Group No: A-15
+	Roll no: 22
+	Registration Number:18010704
+-->
+
+<!DOCTYPE html>
+<html>
+<title>Edvisualize</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="home.css">
+<link rel="stylesheet" href="home2.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+<body>
+
+  <!-- Sidebar -->
+<div class="vis-sidebar vis-bar-block vis-border-right" style="display:none" id="mySidebar">
+
+  <button onclick="vis_close()" class="vis-bar-item vis-large">Close &times;</button>
+  <h4 class="sidebar-h4">Algorithms</h4>
+  <a href="../Algorithms/Sorting/ComparisonSort.html" class="vis-bar-item vis-button">Comparision Sort</a>
+  <a href="../Algorithms/Sorting/HeapSort.html" class="vis-bar-item vis-button">Heap Sort</a>
+  <a href="../Algorithms/Graph/BFS.html" class="vis-bar-item vis-button">Breadth First Search</a>
+  <a href="../Algorithms/Graph/DFS.html" class="vis-bar-item vis-button">Depth First Search</a>
+  <a href="../Algorithms/Graph/Dijkstra.html" class="vis-bar-item vis-button">Dijkstra</a>
+  <a href="../Algorithms/Tree/BST.html" class="vis-bar-item vis-button">Binary Search Tree</a>
+  <h4 class="sidebar-h4">Data Visualisation</h4>
+  <a href="../Data visualization/barChart/barChart.html" class="vis-bar-item vis-button">Bar Chart</a>
+  <a href="../Data visualization/horizontalbarChart/horizontalbarChart.html" class="vis-bar-item vis-button">Horizontal Bar Chart</a>
+  <a href="../Data visualization/DoughnutChart/doughnutChart.html" class="vis-bar-item vis-button">Doughnut Chart</a>
+  <a href="../Data visualization/piechart/pieChart.html" class="vis-bar-item vis-button">Pie Chart</a>
+  <a href="../Data visualization/lineChart/lineChart.html" class="vis-bar-item vis-button">Line Chart</a>
+  <a href="../Data visualization/RadarChart/RadarChart.html" class="vis-bar-item vis-button">Radar Chart</a>
+  <h4 class="sidebar-h4">Machine Learning</h4>
+  <a href="../NN/index.html" class="vis-bar-item vis-button">Neural Network</a>
+  <h4 class="sidebar-h4">Learn</h4>
+  <a href="../documentation/algorithm.html" class="vis-bar-item vis-button">Algorithms</a>
+  <a href="../documentation/DataVisualisation.html" class="vis-bar-item vis-button">Data Visualisation</a>
+  <a href="../documentation/nn.html" class="vis-bar-item vis-button">Neural Network</a>
+
+</div>
+  <nav class="fixed-nav-bar">
+  <!-- Fixed navigation bar content -->
+
+  <div class="topnav">
+    <div class="vis-teal">
+    <button class="vis-button vis-teal vis-xlarge" onclick="vis_open()">☰</button>
+    <div class="logo"><img src="logo.png" alt="logo"></div>
+    <div class="topnav-right">
+    <a href="#home">Home</a>
+    <a href="#vis">Visualisation</a>
+    <a href="#us">About</a>
+    <div class="dropdown">
+      <button class="dropbtn">Learn More
+
+      </button>
+      <div class="dropdown-content">
+  <a href="../documentation/algorithm.html" class="vis-bar-item vis-button">Algorithms</a>
+  <a href="../documentation/DataVisualisation.html" class="vis-bar-item vis-button vis-justify">Data <br>Visualisation</a>
+  <a href="../documentation/nn.html" class="vis-bar-item vis-button vis-justify">Neural<br>Network</a>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  </div>
+</nav>
+
+
+
+
+
+<!-- Header / Home-->
+<header class="vis-display-container vis-wide bgimg vis-grayscale-min" id="home">
+
+</div>
+  <div class="vis-display-middle vis-text-white vis-center">
+    <h1 class="vis-jumbo">Edvisualize</h1>
+
+  </div>
+</header>
+
+
+<!-- Ncards -->
+<h1 class="vish1 vis-center vis-text-grey" id="vis"><b>Visualisation</b></h1>
+<div class="cardsv row">
+  <div class="column">
+    <a href="../Algorithms/Sorting/ComparisonSort.html">
+      <div class="card">
+        <img src="sortanimation.gif" alt="Algo" style="width:300px;height:200px;">
+        <div class="container">
+          <h4><b>Algorithms</b></h4>
+          
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="column">
+    <a href="../Data visualization/barChart/barChart.html">
+      <div class="card">
+        <img src="data.gif" alt="data" style="width:300px;height:200px;">
+        <div class="container">
+          <h4><b>Data Visualisation</b></h4>
+          
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="column">
+    <a href="#">
+      <div class="card">
+        <img src="neural.gif" alt="A" style="width:300px;height:200px;">
+        <div class="container">
+          <h4><b>Machine Learning</b></h4>
+          
+        </div>
+      </div>
+    </a>
+  </div>
+
+</div>
+
+
+
+<!-- About / Jane And John -->
+<div class="vis-container vis-padding-64 vis-pale-red vis-grayscale-min" id="us">
+  <div class="vis-content">
+    <h1 class="vis-center vis-text-grey"><b>About</b></h1>
+    <center>
+    <p><i> Edvisualize is a platform for students and instructors to visualize and better understand common computer science algorithms. <br> It also provides visualization for students to understand basics of data visualization and neural networks.</i>
+    </p>
+  </center>
+    <br>
+
+  </div>
+</div>
+
+
+
+
+<!-- Footer -->
+<footer class="vis-center vis-black vis-padding-16">
+	<div class="footerv row">
+	  <div class="column">
+		<div class="container">
+		  <p><img class="iconimg" height="80px" src="logo.png"alt="footer-logo"></p>
+		</div>
+	  </div>
+	  <div class="column">
+		<div class="container" id="cus">
+		  <h4><b>Contact Us</b></h4>
+		  <p class="contactus"><a href="https://www.linkedin.com/in/anushree-ninave-18374a1b3/" target="_blank">@Anushree</a> <a href="https://twitter.com/DeshpandeDevang" target="_blank">@Devang</a> <a href="https://www.linkedin.com/in/grace-lal5/" target="_blank">@Grace</a> <a href="https://www.linkedin.com/in/vinaya-wahekar-076857193/" target="_blank">@Vinaya</a></p>
+		</div>
+	  </div>
+	  <div class="column">
+		<div class="container">
+		  <p><img class="iconimg" width="45px" src="github.png"alt="github-logo"><a href="https://github.com/GraceLal/Edvisualize" target="_blank"> Github</a></p>
+		</div>
+	  </div>
+	</div>
+
+  </footer>
+
+
+
+<script>
+function vis_open() {
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function vis_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+
+</body>
+</html>
