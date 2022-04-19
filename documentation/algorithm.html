@@ -1,99 +1,140 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
-    <meta charset="utf-8">
-    <title>Edvisualize:Learn-Algorithms</title>
-    <link href="https://fonts.googleeapis.com/css?family=Merriweather|Montserrat|Sacramento" rel="stylesheet" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<title>Edvisualize:Learn-Algorithms</title>
+<link href="https://fonts.googleeapis.com/css?family=Merriweather|Montserrat|Sacramento" rel="stylesheet" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/documentation.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <style>
-      h1 {text-align: center;}
-    p {text-align: center;}
-    div {text-align: center;}
-    body {
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/documentation.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+   h1 {
+      text-align: center;
+   }
+
+   p {
+      text-align: center;
+   }
+
+   div {
+      text-align: center;
+   }
+
+   body {
 
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;
 
-    }
+   }
+</style>
 
-    </style>
-
-  <body>
-    <!-- Sidebar -->
-    <div class="vis-sidebar vis-bar-block vis-border-right" style="display:none" id="mySidebar">
+<body>
+   <!-- Sidebar -->
+   <div class="vis-sidebar vis-bar-block vis-border-right" style="display:none" id="mySidebar">
 
       <button onclick="vis_close()" class="vis-bar-item vis-large">Close &times;</button>
-      <h4 class="sidebar-h4">Algorithms</h4>
-      <a href="../Algorithms/Sorting/ComparisonSort.html" class="vis-bar-item vis-button">Comparision Sort</a>
-      <a href="../Algorithms/Sorting/HeapSort.html" class="vis-bar-item vis-button">Heap Sort</a>
-      <a href="../Algorithms/Graph/BFS.html" class="vis-bar-item vis-button">Breadth First Search</a>
-      <a href="../Algorithms/Graph/DFS.html" class="vis-bar-item vis-button">Depth First Search</a>
-      <a href="../Algorithms/Graph/Dijkstra.html" class="vis-bar-item vis-button">Dijkstra</a>
-      <a href="../Algorithms/Tree/BST.html" class="vis-bar-item vis-button">Binary Search Tree</a>
-      <h4 class="sidebar-h4">Data Visualisation</h4>
-      <a href="../Data visualization/barChart/barChart.html" class="vis-bar-item vis-button">Bar Chart</a>
-      <a href="../Data visualization/horizontalbarChart/horizontalbarChart.html" class="vis-bar-item vis-button">Horizontal Bar Chart</a>
-      <a href="../Data visualization/DoughnutChart/doughnutChart.html" class="vis-bar-item vis-button">Doughnut Chart</a>
-      <a href="../Data visualization/piechart/pieChart.html" class="vis-bar-item vis-button">Pie Chart</a>
-      <a href="../Data visualization/lineChart/lineChart.html" class="vis-bar-item vis-button">Line Chart</a>
-      <a href="../Data visualization/RadarChart/RadarChart.html" class="vis-bar-item vis-button">Radar Chart</a>
-      <h4 class="sidebar-h4">Machine Learning</h4>
-      <a href="../NN/index.html" class="vis-bar-item vis-button">Neural Network</a>
-      <h4 class="sidebar-h4">Learn</h4>
-      <a href="../documentation/algorithm.html" class="vis-bar-item vis-button">Algorithms</a>
-      <a href="../documentation/DataVisualisation.html" class="vis-bar-item vis-button">Data Visualisation</a>
-      <a href="../documentation/nn.html" class="vis-bar-item vis-button">Neural Network</a>
-    </div>
-    <nav class="fixed-nav-bar">
-    <!-- Fixed navigation bar content -->
+      <h4 class="sidebar-h4">Data Structures &amp; Algorithms</h4>
+      <a href="../../Algorithms/Sorting/ComparisonSort.html" class="vis-bar-item vis-button">Comparision
+         Sort</a>
+      <a href="../../Algorithms/Sorting/HeapSort.html" class="vis-bar-item vis-button">Heap Sort</a>
+      <a href="../../Algorithms/Graph/BFS.html" class="vis-bar-item vis-button">Breadth First Search</a>
+      <a href="../../Algorithms/Graph/DFS.html" class="vis-bar-item vis-button">Depth First Search</a>
+      <a href="../../Algorithms/Graph/Dijkstra.html" class="vis-bar-item vis-button">Dijkstra</a>
+      <a href="../../Algorithms/Tree/BST.html" class="vis-bar-item vis-button">Binary Search Tree</a>
+      <h4 class="sidebar-h4">Statistical Graphs</h4>
+      <a href="../../Data visualization/barChart/barChart.html" class="vis-bar-item vis-button">Bar Chart</a>
+      <a href="../../Data visualization/horizontalbarChart/horizontalbarChart.html"
+         class="vis-bar-item vis-button">Horizontal Bar Chart</a>
+      <a href="../../Data visualization/DoughnutChart/doughnutChart.html" class="vis-bar-item vis-button">Doughnut
+         Chart</a>
+      <a href="../../Data visualization/piechart/pieChart.html" class="vis-bar-item vis-button">Pie Chart</a>
+      <a href="../../Data visualization/lineChart/lineChart.html" class="vis-bar-item vis-button">Line
+         Chart</a>
+      <a href="../../Data visualization/RadarChart/RadarChart.html" class="vis-bar-item vis-button">Radar
+         Chart</a>
+      <h4 class="sidebar-h4">Neural Network</h4>
+      <a href="../../NN/index.html" class="vis-bar-item vis-button">Neural Network</a>
+      <h4 class="sidebar-h4">Compiler Design Parsers</h4>
+      <a href="../../Parsers/ll1_styled_pg1.html" class="vis-bar-item vis-button">LL1 Parser</a>
+      <a href="../../Parsers/slr_styled_pg1.html" class="vis-bar-item vis-button">SLR-Parsing Table</a>
+      <a href="../../Parsers/slr_styled_pg2.html" class="vis-bar-item vis-button">SLR-Parse Tree and Stack
+         Trace </a>
+      <a href="../../Parsers/lr1_stye_pg1.html" class="vis-bar-item vis-button">LR1-Parsing Table</a>
+      <a href="../../Parsers/lr1_stye_pg2.html" class="vis-bar-item vis-button">LR1-Parse Tree and Stack Trace
+      </a>
+      <a href="../../Parsers/lalr1_styled_pg1.html" class="vis-bar-item vis-button">LALR-Parsing Table</a>
+      <a href="../../Parsers/lalr1_styled_pg2.html" class="vis-bar-item vis-button">LALR-Parse Tree and Stack
+         Trace
+      </a>
+      <h4 class="sidebar-h4">Learn More</h4>
+      <a href="../../documentation/algorithm.html" class="vis-bar-item vis-button">Data Structures &amp;
+         Algorithms</a>
+      <a href="../../documentation/DataVisualisation.html" class="vis-bar-item vis-button">Statistical
+         Graphs</a>
+      <a href="../../documentation/nn.html" class="vis-bar-item vis-button">Neural Network</a>
 
-    <div class="topnav">
-      <div class="vis-teal">
-      <button class="vis-button vis-teal vis-xlarge" onclick="vis_open()">☰</button>
-      <div class="logo"><img src="../../logo.png" alt="logo"></div>
-      <div class="topnav-right">
-        <a href="../../index.html">Home</a>
-      <div class="dropdown">
-        <button class="dropbtn">Learn More
+   </div>
+   <nav class="fixed-nav-bar">
+      <!-- Fixed navigation bar content -->
 
-        </button>
-        <div class="dropdown-content">
-    <a href="../documentation/algorithm.html" class="vis-bar-item vis-button">Algorithms</a>
-    <a href="../documentation/DataVisualisation.html" class="vis-bar-item vis-button vis-justify">Data <br>Visualisation</a>
-    <a href="../documentation/nn.html" class="vis-bar-item vis-button vis-justify">Neural<br>Network</a>
-        </div>
+      <div class="topnav">
+         <div class="vis-teal">
+            <button class="vis-button vis-teal vis-xlarge" onclick="vis_open()">☰</button>
+            <div class="logo"><img src="../../logo.png" alt="logo"></div>
+            <div class="topnav-right">
+               <a href="../../index.html">Home</a>
+               <div class="dropdown">
+                  <button class="dropbtn">Learn More
+
+                  </button>
+                  <div class="dropdown-content">
+                     <a href="../../documentation/algorithm.html" class="vis-bar-item vis-button">Data
+                        <br>Structures <br> &amp;
+                        Algorithms</a>
+                     <a href="../../documentation/DataVisualisation.html"
+                        class="vis-bar-item vis-button vis-justify">Statistical
+                        <br>Graphs</a>
+                     <a href="../../documentation/nn.html"
+                        class="vis-bar-item vis-button vis-justify">Neural<br>Network</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+
       </div>
-      </div>
-    </div>
+   </nav>
+   <!-- insertion -->
+   <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
+      <h2 class=" vis-wide">Sorting Algorithms</h2>
 
-    </div>
-  </nav>
-  <!-- insertion -->
-  <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
-    <h2 class=" vis-wide">Sorting Algorithms</h2>
+      <h3>
+         <p class=" vis-opacity"><i>1.Insertion Sort</i></p>
+      </h3>
 
-    <h3><p class=" vis-opacity"><i>1.Insertion Sort</i></p></h3>
+      <p class=" vis-justify">This is an in-place comparison-based sorting algorithm. Here, a sub-list is maintained
+         which is always sorted. For example, the lower part of an array is maintained to be sorted. An element which is
+         to be 'insert'ed in this sorted sub-list, has to find its appropriate place and then it has to be inserted
+         there. Hence the name, insertion sort.
 
-    <p class=" vis-justify">This is an in-place comparison-based sorting algorithm. Here, a sub-list is maintained which is always sorted. For example, the lower part of an array is maintained to be sorted. An element which is to be 'insert'ed in this sorted sub-list, has to find its appropriate place and then it has to be inserted there. Hence the name, insertion sort.
+         The array is searched sequentially and unsorted items are moved and inserted into the sorted sub-list (in the
+         same array). This algorithm is not suitable for large data sets as its average and worst case complexity are of
+         Ο(n2), where n is the number of items.</p>
 
-The array is searched sequentially and unsorted items are moved and inserted into the sorted sub-list (in the same array). This algorithm is not suitable for large data sets as its average and worst case complexity are of Ο(n2), where n is the number of items.</p>
-
-<img class="a" src="/documentation/images/Insertion.gif" alt="b">
-    <p class="vis-opacity vis-justify">Algorithm</p>
+      <img class="a" src="/documentation/images/Insertion.gif" alt="b">
+      <p class="vis-opacity vis-justify">Algorithm</p>
 
       <p class="vis-justify">Step 1 − If it is the first element, it is already sorted. return 1;
-      <br>Step 2 − Pick next element
-      <br>Step 3 − Compare with all elements in the sorted sub-list
-      <br>Step 4 − Shift all the elements in the sorted sub-list that is greater than the value to be sorted
-      <br>Step 5 − Insert the value
-      <br>Step 6 − Repeat until list is sorted</p>
+         <br>Step 2 − Pick next element
+         <br>Step 3 − Compare with all elements in the sorted sub-list
+         <br>Step 4 − Shift all the elements in the sorted sub-list that is greater than the value to be sorted
+         <br>Step 5 − Insert the value
+         <br>Step 6 − Repeat until list is sorted
+      </p>
       <p class="vis-opacity vis-justify">Pseudocode</p>
-      <pre class="prettyprint notranslate prettyprinted" ><span class="pln">procedure insertionSort</span><span class="pun">(</span><span class="pln"> A </span><span class="pun">:</span><span class="pln"> array </span><span class="kwd">of</span><span class="pln"> items </span><span class="pun">)</span><span class="pln">
+      <pre class="prettyprint notranslate prettyprinted"><span class="pln">procedure insertionSort</span><span class="pun">(</span><span class="pln"> A </span><span class="pun">:</span><span class="pln"> array </span><span class="kwd">of</span><span class="pln"> items </span><span class="pun">)</span><span class="pln">
       </span><span class="kwd">int</span><span class="pln"> holePosition
       </span><span class="kwd">int</span><span class="pln"> valueToInsert
 
@@ -116,29 +157,36 @@ The array is searched sequentially and unsorted items are moved and inserted int
       </span><span class="kwd">end</span><span class="pln"> </span><span class="kwd">for</span><span class="pln">
 
    </span><span class="kwd">end</span><span class="pln"> procedure</span></pre>
-    </div>
+   </div>
 
 
-  <!-- Selection -->
-    <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
-      <h3><p class=" vis-opacity"><i>2.Selection Sort</i></p></h3>
-      <p class=" vis-justify">Selection sort is a simple sorting algorithm. This sorting algorithm is an in-place comparison-based algorithm in which the list is divided into two parts, the sorted part at the left end and the unsorted part at the right end. Initially, the sorted part is empty and the unsorted part is the entire list.
+   <!-- Selection -->
+   <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
+      <h3>
+         <p class=" vis-opacity"><i>2.Selection Sort</i></p>
+      </h3>
+      <p class=" vis-justify">Selection sort is a simple sorting algorithm. This sorting algorithm is an in-place
+         comparison-based algorithm in which the list is divided into two parts, the sorted part at the left end and the
+         unsorted part at the right end. Initially, the sorted part is empty and the unsorted part is the entire list.
 
-The smallest element is selected from the unsorted array and swapped with the leftmost element, and that element becomes a part of the sorted array. This process continues moving unsorted array boundary by one element to the right.
+         The smallest element is selected from the unsorted array and swapped with the leftmost element, and that
+         element becomes a part of the sorted array. This process continues moving unsorted array boundary by one
+         element to the right.
 
-This algorithm is not suitable for large data sets as its average and worst case complexities are of Ο(n2), where n is the number of items.</p>
-          <img class="a" src="images/selection2.gif" alt="b">
+         This algorithm is not suitable for large data sets as its average and worst case complexities are of Ο(n2),
+         where n is the number of items.</p>
+      <img class="a" src="images/selection2.gif" alt="b">
 
 
-       <p class="vis-opacity vis-justify">Algorithm</p>
-        <p class="vis-justify">Step 1 − Set MIN to location 0
-        <br>Step 2 − Search the minimum element in the list
-        <br>Step 3 − Swap with value at location MIN
-        <br>Step 4 − Increment MIN to point to next element
-        <br>Step 5 − Repeat until list is sorted
-      <br />
-         <p class="vis-opacity vis-justify">Pseudocode</p>
-         <pre class="prettyprint notranslate prettyprinted" ><span class="pln">procedure selection sort
+      <p class="vis-opacity vis-justify">Algorithm</p>
+      <p class="vis-justify">Step 1 − Set MIN to location 0
+         <br>Step 2 − Search the minimum element in the list
+         <br>Step 3 − Swap with value at location MIN
+         <br>Step 4 − Increment MIN to point to next element
+         <br>Step 5 − Repeat until list is sorted
+         <br />
+      <p class="vis-opacity vis-justify">Pseudocode</p>
+      <pre class="prettyprint notranslate prettyprinted"><span class="pln">procedure selection sort
           list  </span><span class="pun">:</span><span class="pln"> array </span><span class="kwd">of</span><span class="pln"> items
           n     </span><span class="pun">:</span><span class="pln"> size </span><span class="kwd">of</span><span class="pln"> list
 
@@ -162,25 +210,32 @@ This algorithm is not suitable for large data sets as its average and worst case
 
        </span><span class="kwd">end</span><span class="pln"> procedure</span></pre>
 
-      </div>
+   </div>
 
 
-  <!-- Bubble -->
-  <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
+   <!-- Bubble -->
+   <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
 
 
-    <h3><p class=" vis-opacity"><i>3.Bubble Sort</i></p></h3>
+      <h3>
+         <p class=" vis-opacity"><i>3.Bubble Sort</i></p>
+      </h3>
 
-    <p class=" vis-justify">Bubble sort is a simple sorting algorithm. This sorting algorithm is comparison-based algorithm in which each pair of adjacent elements is compared and the elements are swapped if they are not in order. This algorithm is not suitable for large data sets as its average and worst case complexity are of Ο(n2) where n is the number of items..</p>
+      <p class=" vis-justify">Bubble sort is a simple sorting algorithm. This sorting algorithm is comparison-based
+         algorithm in which each pair of adjacent elements is compared and the elements are swapped if they are not in
+         order. This algorithm is not suitable for large data sets as its average and worst case complexity are of Ο(n2)
+         where n is the number of items..</p>
 
-  <img class="a" src="images/bubble.gif" alt="a">
-    <p class="vis-opacity vis-justify">Algorithm</p>
-      <p class="vis-justify">Step 1 −Starting with the first element(index = 0), compare the current element with the next element of the array.
-      <br>Step 2 − If the current element is greater than the next element of the array, swap them.
-      <br>Step 3 − If the current element is less than the next element, move to the next element. Repeat Step 1.
+      <img class="a" src="images/bubble.gif" alt="a">
+      <p class="vis-opacity vis-justify">Algorithm</p>
+      <p class="vis-justify">Step 1 −Starting with the first element(index = 0), compare the current element with the
+         next element of the array.
+         <br>Step 2 − If the current element is greater than the next element of the array, swap them.
+         <br>Step 3 − If the current element is less than the next element, move to the next element. Repeat Step 1.
       </p>
-       <p class="vis-opacity vis-justify">Pseudocode</p>
-       <pre class="prettyprint notranslate prettyprinted" ><span class="pln">procedure bubbleSort</span><span class="pun">(</span><span class="pln"> list </span><span class="pun">:</span><span class="pln"> array </span><span class="kwd">of</span><span class="pln"> items </span><span class="pun">)</span><span class="pln">
+      <p class="vis-opacity vis-justify">Pseudocode</p>
+      <pre
+         class="prettyprint notranslate prettyprinted"><span class="pln">procedure bubbleSort</span><span class="pun">(</span><span class="pln"> list </span><span class="pun">:</span><span class="pln"> array </span><span class="kwd">of</span><span class="pln"> items </span><span class="pun">)</span><span class="pln">
 
         loop </span><span class="pun">=</span><span class="pln"> list</span><span class="pun">.</span><span class="pln">count</span><span class="pun">;</span><span class="pln">
 
@@ -209,25 +264,30 @@ This algorithm is not suitable for large data sets as its average and worst case
 
      </span><span class="kwd">end</span><span class="pln"> procedure </span><span class="kwd">return</span><span class="pln"> list</span></pre>
 
-    </div>
-      <!-- Merge-->
+   </div>
+   <!-- Merge-->
 
-    <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
-      <h3><p class=" vis-opacity"><i>4.MergeSort</i></p></h3>
+   <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
+      <h3>
+         <p class=" vis-opacity"><i>4.MergeSort</i></p>
+      </h3>
       <p class=" vis-justify">
-        Merge Sort is a Divide and Conquer algorithm. It divides the input array into two halves, calls itself for the two halves, and then merges the two sorted halves. The merge() function is used for merging two halves. The merge(arr, l, m, r) is a key process that assumes that arr[l..m] and arr[m+1..r] are sorted and merges the two sorted sub-arrays into one. See the following C implementation for details.</p>
-          <img class="a" src="images/merge.gif" alt="b">
+         Merge Sort is a Divide and Conquer algorithm. It divides the input array into two halves, calls itself for the
+         two halves, and then merges the two sorted halves. The merge() function is used for merging two halves. The
+         merge(arr, l, m, r) is a key process that assumes that arr[l..m] and arr[m+1..r] are sorted and merges the two
+         sorted sub-arrays into one. See the following C implementation for details.</p>
+      <img class="a" src="images/merge.gif" alt="b">
 
 
-       <p class="vis-opacity vis-justify">Algorithm</p>
-        <p class="vis-justify">Step 1 − If it is only one element in the list it is already sorted, return.
-        <br>Step 2 − Divide the list recursively into two halves until it can no more be divided.
-        <br>Step 3 − Merge the smaller lists into new list in sorted order.
-        <br>Step 4 − Increment MIN to point to next element
-        <br>Step 5 − Repeat until list is sorted
-      <br />
-         <p class="vis-opacity vis-justify">Pseudocode</p>
-         <pre class="prettyprint notranslate prettyprinted" ><span class="pln">procedure mergesort</span><span class="pun">(</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> a </span><span class="kwd">as</span><span class="pln"> array </span><span class="pun">)</span><span class="pln">
+      <p class="vis-opacity vis-justify">Algorithm</p>
+      <p class="vis-justify">Step 1 − If it is only one element in the list it is already sorted, return.
+         <br>Step 2 − Divide the list recursively into two halves until it can no more be divided.
+         <br>Step 3 − Merge the smaller lists into new list in sorted order.
+         <br>Step 4 − Increment MIN to point to next element
+         <br>Step 5 − Repeat until list is sorted
+         <br />
+      <p class="vis-opacity vis-justify">Pseudocode</p>
+      <pre class="prettyprint notranslate prettyprinted"><span class="pln">procedure mergesort</span><span class="pun">(</span><span class="pln"> </span><span class="kwd">var</span><span class="pln"> a </span><span class="kwd">as</span><span class="pln"> array </span><span class="pun">)</span><span class="pln">
         </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln"> n </span><span class="pun">==</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="pun">)</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> a
 
         </span><span class="kwd">var</span><span class="pln"> l1 </span><span class="kwd">as</span><span class="pln"> array </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span><span class="pln"> </span><span class="pun">...</span><span class="pln"> a</span><span class="pun">[</span><span class="pln">n</span><span class="pun">/</span><span class="lit">2</span><span class="pun">]</span><span class="pln">
@@ -266,30 +326,37 @@ This algorithm is not suitable for large data sets as its average and worst case
 
      </span><span class="kwd">end</span><span class="pln"> procedure</span></pre>
 
-      </div>
+   </div>
 
 
 
-  <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
-  <!-- Quick -->
+   <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
+      <!-- Quick -->
 
-    <h3><p class=" vis-opacity"><i>5.Quick Sort</i></p></h3>
+      <h3>
+         <p class=" vis-opacity"><i>5.Quick Sort</i></p>
+      </h3>
 
-    <p class=" vis-justify">
-      Quick sort is a highly efficient sorting algorithm and is based on partitioning of array of data into smaller arrays. A large array is partitioned into two arrays one of which holds values smaller than the specified value, say pivot, based on which the partition is made and another array holds values greater than the pivot value.
+      <p class=" vis-justify">
+         Quick sort is a highly efficient sorting algorithm and is based on partitioning of array of data into smaller
+         arrays. A large array is partitioned into two arrays one of which holds values smaller than the specified
+         value, say pivot, based on which the partition is made and another array holds values greater than the pivot
+         value.
 
-Quicksort partitions an array and then calls itself recursively twice to sort the two resulting subarrays. This algorithm is quite efficient for large-sized data sets as its average and worst-case complexity are O(n2), respectively.</p>
+         Quicksort partitions an array and then calls itself recursively twice to sort the two resulting subarrays. This
+         algorithm is quite efficient for large-sized data sets as its average and worst-case complexity are O(n2),
+         respectively.</p>
 
-  <img class="a" src="images/quick.gif" alt="a">
-    <p class="vis-opacity vis-justify">Algorithm</p>
+      <img class="a" src="images/quick.gif" alt="a">
+      <p class="vis-opacity vis-justify">Algorithm</p>
       <p class="vis-justify">Step 1 − Make the right-most index value pivot
-      <br>Step 2 − partition the array using pivot value
-      <br>Step 3 − quicksort left partition recursively
-      <br>Step 4 − quicksort right partition recursively
+         <br>Step 2 − partition the array using pivot value
+         <br>Step 3 − quicksort left partition recursively
+         <br>Step 4 − quicksort right partition recursively
 
-       <p class="vis-opacity vis-justify">Pseudocode</p>
+      <p class="vis-opacity vis-justify">Pseudocode</p>
 
-       <pre class="prettyprint notranslate prettyprinted" >
+      <pre class="prettyprint notranslate prettyprinted">
         <p class="vis-opacity vis-justify">Quick Sort pivot</p><span class="kwd">function</span><span class="pln"> partitionFunc</span><span class="pun">(</span><span class="pln">left</span><span class="pun">,</span><span class="pln"> right</span><span class="pun">,</span><span class="pln"> pivot</span><span class="pun">)</span><span class="pln">
         leftPointer </span><span class="pun">=</span><span class="pln"> left
         rightPointer </span><span class="pun">=</span><span class="pln"> right </span><span class="pun">-</span><span class="pln"> </span><span class="lit">1</span><span class="pln">
@@ -332,27 +399,34 @@ Quicksort partitions an array and then calls itself recursively twice to sort th
  </span><span class="kwd">end</span><span class="pln"> procedure</span></pre>
 
 
-    </div>
-      <!-- Shell -->
+   </div>
+   <!-- Shell -->
 
-    <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
-      <h3><p class=" vis-opacity"><i>6.Shell Sort</i></p></h3>
-      <p class=" vis-justify">Shell sort is a highly efficient sorting algorithm and is based on insertion sort algorithm. This algorithm avoids large shifts as in case of insertion sort, if the smaller value is to the far right and has to be moved to the far left.
+   <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
+      <h3>
+         <p class=" vis-opacity"><i>6.Shell Sort</i></p>
+      </h3>
+      <p class=" vis-justify">Shell sort is a highly efficient sorting algorithm and is based on insertion sort
+         algorithm. This algorithm avoids large shifts as in case of insertion sort, if the smaller value is to the far
+         right and has to be moved to the far left.
 
-This algorithm uses insertion sort on a widely spread elements, first to sort them and then sorts the less widely spaced elements. This spacing is termed as interval.
-This algorithm is quite efficient for medium-sized data sets as its average and worst-case complexity of this algorithm depends on the gap sequence the best known is Ο(n), where n is the number of items. And the worst case space complexity is O(n).</p>
-          <img class="a" src="images/Shellsort.gif" alt="b">
+         This algorithm uses insertion sort on a widely spread elements, first to sort them and then sorts the less
+         widely spaced elements. This spacing is termed as interval.
+         This algorithm is quite efficient for medium-sized data sets as its average and worst-case complexity of this
+         algorithm depends on the gap sequence the best known is Ο(n), where n is the number of items. And the worst
+         case space complexity is O(n).</p>
+      <img class="a" src="images/Shellsort.gif" alt="b">
 
 
       <p class="vis-opacity vis-justify">Algorithm</p>
-        <p class="vis-justify">Step 1 −Initialize the value of h
-        <br>Step 2 − Divide the list into smaller sub-list of equal interval h
-        <br>Step 3 − Sort these sub-lists using insertion sort
-        <br>Step 4 − Repeat until complete list is sorted
+      <p class="vis-justify">Step 1 −Initialize the value of h
+         <br>Step 2 − Divide the list into smaller sub-list of equal interval h
+         <br>Step 3 − Sort these sub-lists using insertion sort
+         <br>Step 4 − Repeat until complete list is sorted
 
-      <br />
-         <p class="vis-opacity vis-justify">Pseudocode</p>
-         <pre class="prettyprint notranslate prettyprinted" ><span class="pln">procedure shellSort</span><span class="pun">()</span><span class="pln">
+         <br />
+      <p class="vis-opacity vis-justify">Pseudocode</p>
+      <pre class="prettyprint notranslate prettyprinted"><span class="pln">procedure shellSort</span><span class="pun">()</span><span class="pln">
           A </span><span class="pun">:</span><span class="pln"> array </span><span class="kwd">of</span><span class="pln"> items
 
           </span><span class="com">/* calculate interval*/</span><span class="pln">
@@ -385,36 +459,41 @@ This algorithm is quite efficient for medium-sized data sets as its average and 
           </span><span class="kwd">end</span><span class="pln"> </span><span class="kwd">while</span><span class="pln">
 
        </span><span class="kwd">end</span><span class="pln"> procedure</span></pre>
-      </div>
+   </div>
 
 
 
-    <!--Heap  -->
-  <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
-    <h3><p class=" vis-opacity"><i>7.Heap Sort</i></p></h3>
-    <p class=" vis-justify">Heap sort processes the elements by creating the min heap or max heap using the elements of the given array. Min heap or max heap represents the ordering of the array in which root element represents the minimum or maximum element of the array. At each step, the root element of the heap gets deleted and stored into the sorted array and the heap will again be heapified.</p>
-<p class="vis-justify">
-The heap sort basically recursively performs two main operations.
-</p>
-<p class="vis-justify">
+   <!--Heap  -->
+   <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
+      <h3>
+         <p class=" vis-opacity"><i>7.Heap Sort</i></p>
+      </h3>
+      <p class=" vis-justify">Heap sort processes the elements by creating the min heap or max heap using the elements
+         of the given array. Min heap or max heap represents the ordering of the array in which root element represents
+         the minimum or maximum element of the array. At each step, the root element of the heap gets deleted and stored
+         into the sorted array and the heap will again be heapified.</p>
+      <p class="vis-justify">
+         The heap sort basically recursively performs two main operations.
+      </p>
+      <p class="vis-justify">
 
-1.Build a heap H, using the elements of ARR.</p>
+         1.Build a heap H, using the elements of ARR.</p>
 
-<p class="vis-justify">
-2.Repeatedly delete the root element of the heap formed in phase 1..</p>
-<img class="a" src="images/heapsort.gif" alt="b">
+      <p class="vis-justify">
+         2.Repeatedly delete the root element of the heap formed in phase 1..</p>
+      <img class="a" src="images/heapsort.gif" alt="b">
 
 
-<p class="vis-opacity vis-justify ">Algorithm</p>
-<p class="vis-justify">Step 1 - Construct a Binary Tree with given list of Elements.<br />
-Step 2 - Transform the Binary Tree into Min Heap.<br />
-Step 3 - Delete the root element from Min Heap using Heapify method.<br />
-Step 4 - Put the deleted element into the Sorted list.<br />
-Step 5 - Repeat the same until Min Heap becomes empty.<br />
-Step 6 - Display the sorted list.
-<br />
-<p class="vis-opacity vis-justify">Pseudocode</p>
-<pre class="prettyprint notranslate prettyprinted" >Heapsort(A) {
+      <p class="vis-opacity vis-justify ">Algorithm</p>
+      <p class="vis-justify">Step 1 - Construct a Binary Tree with given list of Elements.<br />
+         Step 2 - Transform the Binary Tree into Min Heap.<br />
+         Step 3 - Delete the root element from Min Heap using Heapify method.<br />
+         Step 4 - Put the deleted element into the Sorted list.<br />
+         Step 5 - Repeat the same until Min Heap becomes empty.<br />
+         Step 6 - Display the sorted list.
+         <br />
+      <p class="vis-opacity vis-justify">Pseudocode</p>
+      <pre class="prettyprint notranslate prettyprinted">Heapsort(A) {
   BuildHeap(A)
   for i &lt;- length(A) downto 2 {
      exchange A[1] &lt;-&gt; A[i]
@@ -450,42 +529,49 @@ Heapify(A, i) {
 
 </pre>
 
-</div>
+   </div>
 
 
-  <!-- bfs -->
+   <!-- bfs -->
 
-  <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
-    <h2 class=" vis-wide">Graph Traversal Algorithm</h2>
+   <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
+      <h2 class=" vis-wide">Graph Traversal Algorithm</h2>
 
-    <h3><p class=" vis-opacity"><i>1.Breadth First Search</i></p></h3>
+      <h3>
+         <p class=" vis-opacity"><i>1.Breadth First Search</i></p>
+      </h3>
 
-    <p class=" vis-justify">Breadth first search is a graph traversal algorithm that starts traversing the graph from root node and explores all the neighbouring nodes. Then, it selects the nearest node and explore all the unexplored nodes. The algorithm follows the same process for each of the nearest node until it finds the goal.
+      <p class=" vis-justify">Breadth first search is a graph traversal algorithm that starts traversing the graph from
+         root node and explores all the neighbouring nodes. Then, it selects the nearest node and explore all the
+         unexplored nodes. The algorithm follows the same process for each of the nearest node until it finds the goal.
 
-The algorithm of breadth first search is given below. The algorithm starts with examining the node A and all of its neighbours. In the next step, the neighbours of the nearest node of A are explored and process continues in the further steps. The algorithm explores all neighbours of all the nodes and ensures that each node is visited exactly once and no node is visited twice.</p>
+         The algorithm of breadth first search is given below. The algorithm starts with examining the node A and all of
+         its neighbours. In the next step, the neighbours of the nearest node of A are explored and process continues in
+         the further steps. The algorithm explores all neighbours of all the nodes and ensures that each node is visited
+         exactly once and no node is visited twice.</p>
 
-<img class="b" src="images/bfs.gif" alt="a">
-  <p class="vis-opacity vis-justify">Algorithm</p>
-    <p class="vis-justify">Step 1: SET STATUS = 1 (ready state)
-for each node in G<br />
-Step 2: Enqueue the starting node A<br />
-and set its STATUS = 2
-(waiting state)<br />
-Step 3: Repeat Steps 4 and 5 until
-QUEUE is empty<br />
-Step 4: Dequeue a node N. Process it
-and set its STATUS = 3
-(processed state).<br />
-Step 5: Enqueue all the neighbours of
-N that are in the ready state
-(whose STATUS = 1) and set
-their STATUS = 2
-(waiting state)
-[END OF LOOP]<br />
-Step 6: EXIT<br /></p>
+      <img class="b" src="images/bfs.gif" alt="a">
+      <p class="vis-opacity vis-justify">Algorithm</p>
+      <p class="vis-justify">Step 1: SET STATUS = 1 (ready state)
+         for each node in G<br />
+         Step 2: Enqueue the starting node A<br />
+         and set its STATUS = 2
+         (waiting state)<br />
+         Step 3: Repeat Steps 4 and 5 until
+         QUEUE is empty<br />
+         Step 4: Dequeue a node N. Process it
+         and set its STATUS = 3
+         (processed state).<br />
+         Step 5: Enqueue all the neighbours of
+         N that are in the ready state
+         (whose STATUS = 1) and set
+         their STATUS = 2
+         (waiting state)
+         [END OF LOOP]<br />
+         Step 6: EXIT<br /></p>
 
-     <p class="vis-opacity vis-justify">Pseudocode</p>
-     <pre class="prettyprint notranslate prettyprinted" >   Set all nodes to "not visited";
+      <p class="vis-opacity vis-justify">Pseudocode</p>
+      <pre class="prettyprint notranslate prettyprinted">   Set all nodes to "not visited";
 
      q</font> = new Queue();
 
@@ -504,34 +590,40 @@ Step 6: EXIT<br /></p>
             q.enqueue(y);       // Use the edge (x,y) !!!
       }
    </pre>
-</div>
+   </div>
 
 
-  <!-- dfs -->
+   <!-- dfs -->
 
-  <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
+   <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
 
-    <h3><p class=" vis-opacity"><i>2.Depth First Search</i></p></h3>
+      <h3>
+         <p class=" vis-opacity"><i>2.Depth First Search</i></p>
+      </h3>
 
-    <p class=" vis-justify">
+      <p class=" vis-justify">
 
-    Depth first search (DFS) algorithm starts with the initial node of the graph G, and then goes to deeper and deeper until we find the goal node or the node which has no children. The algorithm, then backtracks from the dead end towards the most recent node that is yet to be completely unexplored.
+         Depth first search (DFS) algorithm starts with the initial node of the graph G, and then goes to deeper and
+         deeper until we find the goal node or the node which has no children. The algorithm, then backtracks from the
+         dead end towards the most recent node that is yet to be completely unexplored.
 
-The data structure which is being used in DFS is stack. The process is similar to BFS algorithm. In DFS, the edges that leads to an unvisited node are called discovery edges while the edges that leads to an already visited node are called block edges</p>
+         The data structure which is being used in DFS is stack. The process is similar to BFS algorithm. In DFS, the
+         edges that leads to an unvisited node are called discovery edges while the edges that leads to an already
+         visited node are called block edges</p>
 
-  <img class="b" src="images/dfs.gif" alt="a">
-  <p class="vis-opacity vis-justify">Algorithm</p>
-    <p class="vis-justify">Step 1: SET STATUS = 1 (ready state) for each node in G<br />
-Step 2: Push the starting node A on the stack and set its STATUS = 2 (waiting state)<br />
-Step 3: Repeat Steps 4 and 5 until STACK is empty<br />
-Step 4: Pop the top node N. Process it and set its STATUS = 3 (processed state)<br />
-Step 5: Push on the stack all the neighbours of N that are in the ready state (whose STATUS = 1) and set their
-STATUS = 2 (waiting state)
-[END OF LOOP]<br />
-Step 6: EXIT<br /></p>
+      <img class="b" src="images/dfs.gif" alt="a">
+      <p class="vis-opacity vis-justify">Algorithm</p>
+      <p class="vis-justify">Step 1: SET STATUS = 1 (ready state) for each node in G<br />
+         Step 2: Push the starting node A on the stack and set its STATUS = 2 (waiting state)<br />
+         Step 3: Repeat Steps 4 and 5 until STACK is empty<br />
+         Step 4: Pop the top node N. Process it and set its STATUS = 3 (processed state)<br />
+         Step 5: Push on the stack all the neighbours of N that are in the ready state (whose STATUS = 1) and set their
+         STATUS = 2 (waiting state)
+         [END OF LOOP]<br />
+         Step 6: EXIT<br /></p>
 
-     <p class="vis-opacity vis-justify">Pseudocode</p>
-     <pre class="prettyprint notranslate prettyprinted" >   Set all nodes to "not visited";
+      <p class="vis-opacity vis-justify">Pseudocode</p>
+      <pre class="prettyprint notranslate prettyprinted">   Set all nodes to "not visited";
 
       s = new Stack();    ******* Change to use a stack
 
@@ -552,47 +644,55 @@ Step 6: EXIT<br /></p>
       }
    </pre>
 
-  </div>
+   </div>
 
 
-  <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
-    <h2 class=" vis-wide">Binary Search Tree</h2>
-
-
-
-    <p class=" vis-justify">Binary Search tree can be defined as a class of binary trees, in which the nodes are arranged in a specific order. This is also called ordered binary tree.
-In a binary search tree, the value of all the nodes in the left sub-tree is less than the value of the root.
-Similarly, value of all the nodes in the right sub-tree is greater than or equal to the value of the root.
-This rule will be recursively applied to all the left and right sub-trees of the root.
-</p>
-
-  <img class="c" src="images/bst.gif" alt="a">
+   <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
+      <h2 class=" vis-wide">Binary Search Tree</h2>
 
 
 
-  </div>
+      <p class=" vis-justify">Binary Search tree can be defined as a class of binary trees, in which the nodes are
+         arranged in a specific order. This is also called ordered binary tree.
+         In a binary search tree, the value of all the nodes in the left sub-tree is less than the value of the root.
+         Similarly, value of all the nodes in the right sub-tree is greater than or equal to the value of the root.
+         This rule will be recursively applied to all the left and right sub-trees of the root.
+      </p>
 
-  <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
-    <h2 class=" vis-wide">Dijkstra’s shortest path algorithm</h2>
+      <img class="c" src="images/bst.gif" alt="a">
 
 
 
-    <p class=" vis-justify">Dijkstra’s algorithm is also known as the shortest path algorithm. It is an algorithm used to find the shortest path between nodes of the graph. The algorithm creates the tree of the shortest paths from the starting source vertex from all other points in the graph. It differs from the minimum spanning tree as the shortest distance between two vertices may not be included in all the vertices of the graph. The algorithm works by building a set of nodes that have a minimum distance from the source. Here, Dijkstra's algorithm uses a greedy approach to solve the problem and find the best solution.</p>
+   </div>
 
-  <img class="c" src="images/djk.gif" alt="a">
-  <p class="vis-opacity vis-justify">Algorithm</p>
-    <p class="vis-justify">1.First of all, we will mark all vertex as unvisited vertex<br />
-2.Then, we will mark the source vertex as 0 and all other vertices as infinity<br />
-3.Consider source vertex as current vertex<br />
-4.Calculate the path length of all the neighboring vertex from the current vertex by adding the weight of the edge in the current vertex<br />
-5.Now, if the new path length is smaller than the previous path length then replace it otherwise ignore it<br />
-6.Mark the current vertex as visited after visiting the neighbor vertex of the current vertex<br />
-7.Select the vertex with the smallest path length as the new current vertex and go back to step 4.<br />
-8.Repeat this process until all the vertex are marked as visited.<br />
-Once we go through the algorithm, we can backtrack the source vertex and find our shortest path.<br /></p>
+   <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
+      <h2 class=" vis-wide">Dijkstra’s shortest path algorithm</h2>
 
-     <p class="vis-opacity vis-justify">Pseudocode</p>
-     <pre class="prettyprint notranslate prettyprinted" >function dijkstra(G, S)
+
+
+      <p class=" vis-justify">Dijkstra’s algorithm is also known as the shortest path algorithm. It is an algorithm used
+         to find the shortest path between nodes of the graph. The algorithm creates the tree of the shortest paths from
+         the starting source vertex from all other points in the graph. It differs from the minimum spanning tree as the
+         shortest distance between two vertices may not be included in all the vertices of the graph. The algorithm
+         works by building a set of nodes that have a minimum distance from the source. Here, Dijkstra's algorithm uses
+         a greedy approach to solve the problem and find the best solution.</p>
+
+      <img class="c" src="images/djk.gif" alt="a">
+      <p class="vis-opacity vis-justify">Algorithm</p>
+      <p class="vis-justify">1.First of all, we will mark all vertex as unvisited vertex<br />
+         2.Then, we will mark the source vertex as 0 and all other vertices as infinity<br />
+         3.Consider source vertex as current vertex<br />
+         4.Calculate the path length of all the neighboring vertex from the current vertex by adding the weight of the
+         edge in the current vertex<br />
+         5.Now, if the new path length is smaller than the previous path length then replace it otherwise ignore
+         it<br />
+         6.Mark the current vertex as visited after visiting the neighbor vertex of the current vertex<br />
+         7.Select the vertex with the smallest path length as the new current vertex and go back to step 4.<br />
+         8.Repeat this process until all the vertex are marked as visited.<br />
+         Once we go through the algorithm, we can backtrack the source vertex and find our shortest path.<br /></p>
+
+      <p class="vis-opacity vis-justify">Pseudocode</p>
+      <pre class="prettyprint notranslate prettyprinted">function dijkstra(G, S)
       each vertex V in G
          distance[V] &lt;- infinite
          previous[V] &lt;- NULL
@@ -607,41 +707,49 @@ Once we go through the algorithm, we can backtrack the source vertex and find ou
               distance[V]&lt; tempDistance
               previous[V]&lt;- U
       return distance[], previous[]</pre>
-  </div>
+   </div>
 
-  <footer class="vis-center vis-black vis-padding-16">
-	<div class="footerv row">
-	  <div class="column">
-		<div class="container">
-		  <p><img height="80px" src="../logo.png"alt="footer-logo"> </p>
-		</div>
-	  </div>
-    <div class="column">
-      <div class="container" id="cus">
-        <h4><b>Contact Us</b></h4>
-        <p class="contactus"><a href="https://www.linkedin.com/in/anushree-ninave-18374a1b3/" target="_blank">@Anushree</a> <a href="https://twitter.com/DeshpandeDevang" target="_blank">@Devang</a> <a href="https://www.linkedin.com/in/grace-lal5/" target="_blank">@Grace</a> <a href="https://www.linkedin.com/in/vinaya-wahekar-076857193/" target="_blank">@Vinaya</a></p>
+   <footer class="vis-center vis-black vis-padding-16">
+      <div class="footerv row">
+         <div class="column">
+            <div class="container">
+               <p><img height="80px" src="../logo.png" alt="footer-logo"> </p>
+            </div>
+         </div>
+         <div class="column">
+            <div class="container" id="cus">
+               <h4><b>Contact Us</b></h4>
+               <p class="contactus"><a href="https://www.linkedin.com/in/anushree-ninave-18374a1b3/"
+                     target="_blank">@Anushree</a> <a href="https://twitter.com/DeshpandeDevang"
+                     target="_blank">@Devang</a>
+                  <a href="https://www.linkedin.com/in/grace-lal5/" target="_blank">@Grace</a> <a
+                     href="https://www.linkedin.com/in/vinaya-wahekar-076857193/" target="_blank">@Vinaya</a><br>
+                  <span>Best viewed in 1920x1080</span>
+               </p>
+            </div>
+         </div>
+         <div class="column">
+            <div class="container">
+               <p><img class="iconimg" width="45px" src="../github.png" alt="github-logo"><a
+                     href="https://github.com/GraceLal/Edvisualize" target="_blank">Github</a></p>
+            </div>
+         </div>
+
       </div>
-      </div>
-	  <div class="column">
-		<div class="container">
-		  <p><img class="iconimg" width="45px" src="../github.png"alt="github-logo"><a href="https://github.com/GraceLal/Edvisualize" target="_blank">Github</a></p>
-		</div>
-	  </div>
-	  
-	</div>
 
-  </footer>
+   </footer>
 
 
-<script>
-function vis_open() {
-  document.getElementById("mySidebar").style.display = "block";
-}
+   <script>
+      function vis_open() {
+         document.getElementById("mySidebar").style.display = "block";
+      }
 
-function vis_close() {
-  document.getElementById("mySidebar").style.display = "none";
-}
-</script>
+      function vis_close() {
+         document.getElementById("mySidebar").style.display = "none";
+      }
+   </script>
 
 </body>
+
 </html>

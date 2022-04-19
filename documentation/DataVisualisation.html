@@ -1,105 +1,148 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
-    <meta charset="utf-8">
-    <title>Edvisualize:Learn-DataVisualisation</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link href="https://fonts.googleeapis.com/css?family=Merriweather|Montserrat|Sacramento" rel="stylesheet" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/documentation.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <style>
-      h1 {text-align: center;}
-    p {text-align: center;}
-    div {text-align: center;}
-    body {
+<meta charset="utf-8">
+<title>Edvisualize:Learn-DataVisualisation</title>
+<link rel="stylesheet" href="css/styles.css" />
+<link href="https://fonts.googleeapis.com/css?family=Merriweather|Montserrat|Sacramento" rel="stylesheet" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/documentation.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+  h1 {
+    text-align: center;
+  }
 
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
+  p {
+    text-align: center;
+  }
 
-    }
+  div {
+    text-align: center;
+  }
 
-    </style>
+  body {
 
-  <body>
-    <!-- Sidebar -->
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+  }
+</style>
+
+<body>
+  <!-- Sidebar -->
   <div class="vis-sidebar vis-bar-block vis-border-right" style="display:none" id="mySidebar">
 
     <button onclick="vis_close()" class="vis-bar-item vis-large">Close &times;</button>
-    <h4 class="sidebar-h4">Algorithms</h4>
-    <a href="../Algorithms/Sorting/ComparisonSort.html" class="vis-bar-item vis-button">Comparision Sort</a>
-    <a href="../Algorithms/Sorting/HeapSort.html" class="vis-bar-item vis-button">Heap Sort</a>
-    <a href="../Algorithms/Graph/BFS.html" class="vis-bar-item vis-button">Breadth First Search</a>
-    <a href="../Algorithms/Graph/DFS.html" class="vis-bar-item vis-button">Depth First Search</a>
-    <a href="../Algorithms/Graph/Dijkstra.html" class="vis-bar-item vis-button">Dijkstra</a>
-    <a href="../Algorithms/Tree/BST.html" class="vis-bar-item vis-button">Binary Search Tree</a>
-    <h4 class="sidebar-h4">Data Visualisation</h4>
-    <a href="../Data visualization/barChart/barChart.html" class="vis-bar-item vis-button">Bar Chart</a>
-    <a href="../Data visualization/horizontalbarChart/horizontalbarChart.html" class="vis-bar-item vis-button">Horizontal Bar Chart</a>
-    <a href="../Data visualization/DoughnutChart/doughnutChart.html" class="vis-bar-item vis-button">Doughnut Chart</a>
-    <a href="../Data visualization/piechart/pieChart.html" class="vis-bar-item vis-button">Pie Chart</a>
-    <a href="../Data visualization/lineChart/lineChart.html" class="vis-bar-item vis-button">Line Chart</a>
-    <a href="../Data visualization/RadarChart/RadarChart.html" class="vis-bar-item vis-button">Radar Chart</a>
-    <h4 class="sidebar-h4">Machine Learning</h4>
-    <a href="../NN/index.html" class="vis-bar-item vis-button">Neural Network</a>
-    <h4 class="sidebar-h4">Learn</h4>
-    <a href="../documentation/algorithm.html" class="vis-bar-item vis-button">Algorithms</a>
-    <a href="../documentation/DataVisualisation.html" class="vis-bar-item vis-button">Data Visualisation</a>
-    <a href="../documentation/nn.html" class="vis-bar-item vis-button">Neural Network</a>
+    <h4 class="sidebar-h4">Data Structures &amp; Algorithms</h4>
+    <a href="../../Algorithms/Sorting/ComparisonSort.html" class="vis-bar-item vis-button">Comparision
+      Sort</a>
+    <a href="../../Algorithms/Sorting/HeapSort.html" class="vis-bar-item vis-button">Heap Sort</a>
+    <a href="../../Algorithms/Graph/BFS.html" class="vis-bar-item vis-button">Breadth First Search</a>
+    <a href="../../Algorithms/Graph/DFS.html" class="vis-bar-item vis-button">Depth First Search</a>
+    <a href="../../Algorithms/Graph/Dijkstra.html" class="vis-bar-item vis-button">Dijkstra</a>
+    <a href="../../Algorithms/Tree/BST.html" class="vis-bar-item vis-button">Binary Search Tree</a>
+    <h4 class="sidebar-h4">Statistical Graphs</h4>
+    <a href="../../Data visualization/barChart/barChart.html" class="vis-bar-item vis-button">Bar Chart</a>
+    <a href="../../Data visualization/horizontalbarChart/horizontalbarChart.html"
+      class="vis-bar-item vis-button">Horizontal Bar Chart</a>
+    <a href="../../Data visualization/DoughnutChart/doughnutChart.html" class="vis-bar-item vis-button">Doughnut
+      Chart</a>
+    <a href="../../Data visualization/piechart/pieChart.html" class="vis-bar-item vis-button">Pie Chart</a>
+    <a href="../../Data visualization/lineChart/lineChart.html" class="vis-bar-item vis-button">Line
+      Chart</a>
+    <a href="../../Data visualization/RadarChart/RadarChart.html" class="vis-bar-item vis-button">Radar
+      Chart</a>
+    <h4 class="sidebar-h4">Neural Network</h4>
+    <a href="../../NN/index.html" class="vis-bar-item vis-button">Neural Network</a>
+    <h4 class="sidebar-h4">Compiler Design Parsers</h4>
+    <a href="../../Parsers/ll1_styled_pg1.html" class="vis-bar-item vis-button">LL1 Parser</a>
+    <a href="../../Parsers/slr_styled_pg1.html" class="vis-bar-item vis-button">SLR-Parsing Table</a>
+    <a href="../../Parsers/slr_styled_pg2.html" class="vis-bar-item vis-button">SLR-Parse Tree and Stack
+      Trace </a>
+    <a href="../../Parsers/lr1_stye_pg1.html" class="vis-bar-item vis-button">LR1-Parsing Table</a>
+    <a href="../../Parsers/lr1_stye_pg2.html" class="vis-bar-item vis-button">LR1-Parse Tree and Stack Trace
+    </a>
+    <a href="../../Parsers/lalr1_styled_pg1.html" class="vis-bar-item vis-button">LALR-Parsing Table</a>
+    <a href="../../Parsers/lalr1_styled_pg2.html" class="vis-bar-item vis-button">LALR-Parse Tree and Stack
+      Trace
+    </a>
+    <h4 class="sidebar-h4">Learn More</h4>
+    <a href="../../documentation/algorithm.html" class="vis-bar-item vis-button">Data Structures &amp;
+      Algorithms</a>
+    <a href="../../documentation/DataVisualisation.html" class="vis-bar-item vis-button">Statistical
+      Graphs</a>
+    <a href="../../documentation/nn.html" class="vis-bar-item vis-button">Neural Network</a>
+
   </div>
-    <nav class="fixed-nav-bar">
+  <nav class="fixed-nav-bar">
     <!-- Fixed navigation bar content -->
 
     <div class="topnav">
       <div class="vis-teal">
-      <button class="vis-button vis-teal vis-xlarge" onclick="vis_open()">☰</button>
-      <div class="logo"><img src="../../logo.png" alt="logo"></div>
-      <div class="topnav-right">
-      <a href="../../index.html">Home</a>
-      <div class="dropdown">
-        <button class="dropbtn">Learn More
+        <button class="vis-button vis-teal vis-xlarge" onclick="vis_open()">☰</button>
+        <div class="logo"><img src="../../logo.png" alt="logo"></div>
+        <div class="topnav-right">
+          <a href="../../index.html">Home</a>
+          <div class="dropdown">
+            <button class="dropbtn">Learn More
 
-        </button>
-        <div class="dropdown-content">
-    <a href="../documentation/algorithm.html" class="vis-bar-item vis-button">Algorithms</a>
-    <a href="../documentation/DataVisualisation.html" class="vis-bar-item vis-button vis-justify">Data <br>Visualisation</a>
-    <a href="../documentation/nn.html" class="vis-bar-item vis-button vis-justify">Neural<br>Network</a>
+            </button>
+            <div class="dropdown-content">
+              <a href="../../documentation/algorithm.html" class="vis-bar-item vis-button">Data
+                <br>Structures <br> &amp;
+                Algorithms</a>
+              <a href="../../documentation/DataVisualisation.html"
+                class="vis-bar-item vis-button vis-justify">Statistical
+                <br>Graphs</a>
+              <a href="../../documentation/nn.html" class="vis-bar-item vis-button vis-justify">Neural<br>Network</a>
+            </div>
+          </div>
         </div>
       </div>
-      </div>
-    </div>
 
     </div>
   </nav>
   <!-- bar -->
   <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
-    <h2 class=" vis-wide">Data Visualisation</h2>
+    <h2 class=" vis-wide">Statistical Graphs</h2>
 
-    <h3><p class=" vis-opacity"><i>1.Bar Chart</i></p></h3>
+    <h3>
+      <p class=" vis-opacity"><i>1.Bar Chart</i></p>
+    </h3>
     <img class="d" src="images/bar.gif" alt="a">
-    <p class=" vis-justify">A bar chart is a graph with rectangular bars. The graph usually compares different categories. Although the graphs can be plotted vertically (bars standing up) or horizontally (bars laying flat from left to right), the most usual type of bar graph is vertical.
+    <p class=" vis-justify">A bar chart is a graph with rectangular bars. The graph usually compares different
+      categories. Although the graphs can be plotted vertically (bars standing up) or horizontally (bars laying flat
+      from left to right), the most usual type of bar graph is vertical.
 
-      The horizontal (x) axis represents the categories; The vertical (y) axis represents a value for those categories. In the graph below, the values are percentages.
+      The horizontal (x) axis represents the categories; The vertical (y) axis represents a value for those categories.
+      In the graph below, the values are percentages.
 
-     A bar graph is useful for looking at a set of data and making comparisons.
+      A bar graph is useful for looking at a set of data and making comparisons.
     </p>
 
 
 
-    </div>
+  </div>
 
-<!-- Horizantal bar  chart-->
-<div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
+  <!-- Horizantal bar  chart-->
+  <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
 
-  <h3><p class=" vis-opacity"><i>2.Horizantal Bar Chart</i></p></h3>
-  <img class="d" src="images/ho.gif" alt="a">
-  <p class=" vis-justify">A horizontal bar chart is a graph in the form of rectangular bars. It’s a data visualization technique.
-    The length of these bars is proportional to the values they represent. The bar chart title indicates which data is represented. The vertical axis represents the categories being compared, while the horizontal axis represents a value.
-    This type of chart provides a visual representation of categorical data. This data is grouped together as a group. Examples include months of the year, age range, shoe size, or animal species.
+    <h3>
+      <p class=" vis-opacity"><i>2.Horizantal Bar Chart</i></p>
+    </h3>
+    <img class="d" src="images/ho.gif" alt="a">
+    <p class=" vis-justify">A horizontal bar chart is a graph in the form of rectangular bars. It’s a data visualization
+      technique.
+      The length of these bars is proportional to the values they represent. The bar chart title indicates which data is
+      represented. The vertical axis represents the categories being compared, while the horizontal axis represents a
+      value.
+      This type of chart provides a visual representation of categorical data. This data is grouped together as a group.
+      Examples include months of the year, age range, shoe size, or animal species.
 
-  </p>
+    </p>
 
 
 
@@ -107,104 +150,137 @@
   <!-- doughnut -->
   <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
 
-    <h3><p class=" vis-opacity"><i>3.Doughnut Chart</i></p></h3>
+    <h3>
+      <p class=" vis-opacity"><i>3.Doughnut Chart</i></p>
+    </h3>
     <img class="d" src="images/do.png" alt="a">
-    <p class=" vis-justify">A  doughnut (or donut) chart is a pie chart with a "hole" - a blank circular area in the center. The chart is divided into parts that show the percentage each value contributes to a total.
+    <p class=" vis-justify">A doughnut (or donut) chart is a pie chart with a "hole" - a blank circular area in the
+      center. The chart is divided into parts that show the percentage each value contributes to a total.
 
-      Like the regular pie chart, the doughnut chart is used with small sets of data to compare categories. It drives attention from the area taken by each part to emphasize the length of arcs. The blank space also allows displaying some additional information in the center: for example, labels, the name of a selected category, or the chart title.
+      Like the regular pie chart, the doughnut chart is used with small sets of data to compare categories. It drives
+      attention from the area taken by each part to emphasize the length of arcs. The blank space also allows displaying
+      some additional information in the center: for example, labels, the name of a selected category, or the chart
+      title.
     </p>
 
 
 
+  </div>
+
+
+
+  <!-- pie -->
+  <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
+
+    <h3>
+      <p class=" vis-opacity"><i>4.Pie Chart</i></p>
+    </h3>
+    <img class="pie" src="images/po.gif" alt="a">
+    <p class=" vis-justify">Extensively used in presentations and offices, Pie Charts help show proportions and
+      percentages between categories, by dividing a circle into proportional segments. Each arc length represents a
+      proportion of each category, while the full circle represents the total sum of all the data, equal to 100%.
+
+      Pie Charts are ideal for giving the reader a quick idea of the proportional distribution of the data. However the
+      major downsides to pie charts are:
+
+      They cannot show more than a few values, because as the number of values shown increases, the size of each
+      segment/slice becomes smaller. This makes them unsuitable for large amounts of data.
+    </p>
+
+
+
+  </div>
+
+  <!-- line -->
+  <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
+
+    <h3>
+      <p class=" vis-opacity"><i>5.Line Chart</i></p>
+    </h3>
+    <img class="d" src="images/lo.gif" alt="a">
+    <p class=" vis-justify">A line chart is a type of chart that displays information as a series of data points
+      connected by straight line segments.
+      A line chart is a way of visually representing an asset's price history using a single, continuous line.
+      A line chart is easy to understand and simple in form, typically only depicting only changes in an asset's closing
+      price over time.
+      Because line charts usually only show closing prices, they reduce noise from less critical times in the trading
+      day, such as the open, high, and low prices.
+      Because of its simplicity, however, traders looking to identify patterns or trends may opt for chart types with
+      more information, such as a candlestick.
+    </p>
+
+
+
+  </div>
+
+
+
+
+  <!--Radar -->
+  <div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
+
+    <h3>
+      <p class=" vis-opacity"><i>6.Radar Chart</i></p>
+    </h3>
+    <img class="d" src="images/ro.png" alt="a">
+    <p class=" vis-justify">Radar Charts are a way of comparing multiple quantitative variables. This makes them useful
+      for seeing which variables have similar values or if there are any outliers amongst each variable. Radar Charts
+      are also useful for seeing which variables are scoring high or low within a dataset, making them ideal for
+      displaying performance.
+
+      Each variable is provided with an axis that starts from the centre. All axes are arranged radially, with equal
+      distances between each other, while maintaining the same scale between all axes. Grid lines that connect from
+      axis-to-axis are often used as a guide. Each variable value is plotted along its individual axis and all the
+      variables in a dataset and connected together to form a polygon.
+    </p>
+
+
+
+  </div>
+
+
+
+
+  <footer class="vis-center vis-black vis-padding-16">
+    <div class="footerv row">
+      <div class="column">
+        <div class="container">
+          <p><img height="80px" src="../logo.png" alt="footer-logo"> </p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="container" id="cus">
+          <h4><b>Contact Us</b></h4>
+          <p class="contactus"><a href="https://www.linkedin.com/in/anushree-ninave-18374a1b3/"
+              target="_blank">@Anushree</a> <a href="https://twitter.com/DeshpandeDevang" target="_blank">@Devang</a>
+            <a href="https://www.linkedin.com/in/grace-lal5/" target="_blank">@Grace</a> <a
+              href="https://www.linkedin.com/in/vinaya-wahekar-076857193/" target="_blank">@Vinaya</a><br>
+            <span>Best viewed in 1920x1080</span>
+          </p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="container">
+          <p><img class="iconimg" width="45px" src="../github.png" alt="github-logo"><a
+              href="https://github.com/GraceLal/Edvisualize" target="_blank">Github</a></p>
+        </div>
+      </div>
+
     </div>
-
-
-
-    <!-- pie -->
-<div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
-
-  <h3><p class=" vis-opacity"><i>4.Pie Chart</i></p></h3>
-  <img class="pie" src="images/po.gif" alt="a">
-  <p class=" vis-justify">Extensively used in presentations and offices, Pie Charts help show proportions and percentages between categories, by dividing a circle into proportional segments. Each arc length represents a proportion of each category, while the full circle represents the total sum of all the data, equal to 100%.
-
-    Pie Charts are ideal for giving the reader a quick idea of the proportional distribution of the data. However the major downsides to pie charts are:
-
-    They cannot show more than a few values, because as the number of values shown increases, the size of each segment/slice becomes smaller. This makes them unsuitable for large amounts of data.
-  </p>
-
-
-
-  </div>
-
-<!-- line -->
-<div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
-
-  <h3><p class=" vis-opacity"><i>5.Line Chart</i></p></h3>
-  <img class="d" src="images/lo.gif" alt="a">
-  <p class=" vis-justify">A line chart is a type of chart that displays information as a series of data points connected by straight line segments.
-    A line chart is a way of visually representing an asset's price history using a single, continuous line.
-    A line chart is easy to understand and simple in form, typically only depicting only changes in an asset's closing price over time.
-    Because line charts usually only show closing prices, they reduce noise from less critical times in the trading day, such as the open, high, and low prices.
-    Because of its simplicity, however, traders looking to identify patterns or trends may opt for chart types with more information, such as a candlestick.
-  </p>
-
-
-
-  </div>
-
-
-
-
-<!--Radar -->
-<div class=" vis-container  vis-content  vis-center  vis-padding-64 options" style="max-width:1000px" id="band">
-
-  <h3><p class=" vis-opacity"><i>6.Radar Chart</i></p></h3>
-  <img class="d" src="images/ro.png" alt="a">
-  <p class=" vis-justify">Radar Charts are a way of comparing multiple quantitative variables. This makes them useful for seeing which variables have similar values or if there are any outliers amongst each variable. Radar Charts are also useful for seeing which variables are scoring high or low within a dataset, making them ideal for displaying performance.
-
-    Each variable is provided with an axis that starts from the centre. All axes are arranged radially, with equal distances between each other, while maintaining the same scale between all axes. Grid lines that connect from axis-to-axis are often used as a guide. Each variable value is plotted along its individual axis and all the variables in a dataset and connected together to form a polygon.
-  </p>
-
-
-
-  </div>
-
-
-
-
-<footer class="vis-center vis-black vis-padding-16">
-	<div class="footerv row">
-	  <div class="column">
-		<div class="container">
-		  <p><img height="80px" src="../logo.png"alt="footer-logo"> </p>
-		</div>
-	  </div>
-    <div class="column">
-      <div class="container" id="cus">
-        <h4><b>Contact Us</b></h4>
-        <p class="contactus"><a href="https://www.linkedin.com/in/anushree-ninave-18374a1b3/" target="_blank">@Anushree</a> <a href="https://twitter.com/DeshpandeDevang" target="_blank">@Devang</a> <a href="https://www.linkedin.com/in/grace-lal5/" target="_blank">@Grace</a> <a href="https://www.linkedin.com/in/vinaya-wahekar-076857193/" target="_blank">@Vinaya</a></p>
-      </div>
-      </div>
-	  <div class="column">
-		<div class="container">
-		  <p><img class="iconimg" width="45px" src="../github.png"alt="github-logo"><a href="https://github.com/GraceLal/Edvisualize" target="_blank">Github</a></p>
-		</div>
-	  </div>
-	  
-	</div>
 
   </footer>
 
 
-<script>
-function vis_open() {
-  document.getElementById("mySidebar").style.display = "block";
-}
+  <script>
+    function vis_open() {
+      document.getElementById("mySidebar").style.display = "block";
+    }
 
-function vis_close() {
-  document.getElementById("mySidebar").style.display = "none";
-}
-</script>
+    function vis_close() {
+      document.getElementById("mySidebar").style.display = "none";
+    }
+  </script>
 
 </body>
+
 </html>
